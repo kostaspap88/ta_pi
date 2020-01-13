@@ -43,7 +43,7 @@ end
 % compute the success rate
 SR = zeros(no_classes,1);
 for i=1:no_classes
-    SR(i)=1-miss_count(i)/floor(size(test_red{i},1)/d);
+    SR(i)=1 - miss_count(i)/floor(size(test_red{i},1)/d);
 end
 
 end

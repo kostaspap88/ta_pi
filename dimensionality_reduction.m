@@ -1,4 +1,4 @@
-function [me, C, test_red]=dimensionality_reduction(train,test,no_classes,no_samples,m)
+function [me, C, test_red] = dimensionality_reduction(train,test, no_classes, no_samples,m)
 
 % Dimensionality reduction using PCA
 
@@ -15,11 +15,11 @@ B_temp=zeros(size(mean_total,1));
 for i=1:no_classes
     B_temp = B_temp+(me_class(:,i)-mean_total)*(me_class(:,i)-mean_total)';
 end
-B=(1/no_classes)*B_temp; 
+B = (1/no_classes)*B_temp; 
 
 % singular value decomposition
 [U,S,V] = svd(B);
-Ur=U(:,1:m);
+Ur = U(:,1:m);
 
 % Reduce the dimension of train dataset and estimate the mean
 % vector and the covariance matrix  
@@ -37,9 +37,6 @@ test_red = cell(no_classes,1);
 for i=1:no_classes
     test_red{i}=test{i}*Ur;
 end
-
-
-
-    
+ 
 
 end
